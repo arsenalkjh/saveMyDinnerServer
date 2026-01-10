@@ -4,7 +4,7 @@ import cv2
 import shutil
 from contextlib import asynccontextmanager
 
-from main import run_ocr_pipeline
+from ocr.main import run_ocr_pipeline
 
 
 
