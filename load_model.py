@@ -1,6 +1,10 @@
 from paddleocr import PaddleOCR
 from ultralytics.models.sam import SAM3SemanticPredictor
+from pathlib import Path
 
+
+BASE_DIR = Path(__file__).resolve().parent
+WEIGHTS_DIR = BASE_DIR / "weights" / "SAM3.pt"
 
 def load_ocr_engine():
     OCR_ENGINE = PaddleOCR(lang="korean", use_angle_cls=True)
@@ -12,7 +16,7 @@ def load_sam_model():
     conf=0.25,
     task="segment",
     mode="predict",
-    model=str("MY WEIGHTS PATH"),
+    model=str(WEIGHTS_DIR),
     half=True,  # Use FP16 for faster inference
     save=True,
     )
