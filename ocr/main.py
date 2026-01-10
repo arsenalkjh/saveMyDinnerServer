@@ -3,9 +3,9 @@ from pathlib import Path
 from paddleocr import PaddleOCR
 from ultralytics.models.sam import SAM3SemanticPredictor
 
-from modules.ocr.ocr_inference import run_ocr_with_rotations
-from modules.ocr.detect_ingredients import run_sam
-from modules.ocr.qwen_model import postprocessing_with_vlm,clean_ocr_with_llm
+from ocr.ocr_inference import run_ocr_with_rotations
+from ocr.detect_ingredients import run_sam
+from ocr.qwen_model import postprocessing_with_vlm,clean_ocr_with_llm
 
 def _dedupe_keep_order(items):
     """리스트 아이템 중복제거 함수"""
