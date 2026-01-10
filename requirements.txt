@@ -1,0 +1,11 @@
+ultralytics
+paddlepaddle==3.2.2 -i https://www.paddlepaddle.org.cn/packages/stable/cpu/\
+paddleocr
+opencv-python
+Pillow
+numpy
+accelerate
+
+torch
+transformers
+sentence-transformers
