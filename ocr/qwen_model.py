@@ -27,7 +27,7 @@ class ModelBundle:
 class QwenPromptManager:
     def __init__(
         self,
-        base_dir: Path = Path("modules/ocr/prompts"),
+        base_dir: Path = Path("ocr/prompts"),
         mapping: Optional[Dict[Purpose, str]] = None,
     ) -> None:
         self.base_dir = base_dir
