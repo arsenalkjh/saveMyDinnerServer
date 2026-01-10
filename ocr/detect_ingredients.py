@@ -5,7 +5,7 @@ from typing import List
 from PIL import Image
 import torch
 
-from modules.ocr.sam_result_postprocessing import boxes_from_results, save_crops
+from ocr.sam_result_postprocessing import boxes_from_results, save_crops
 
 
 
