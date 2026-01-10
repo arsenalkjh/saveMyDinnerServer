@@ -7,9 +7,6 @@ import torch
 
 from ocr.sam_result_postprocessing import boxes_from_results, save_crops
 
-
-
-
 def boxes_from_results(results) -> torch.Tensor:
     if isinstance(results, (list, tuple)):
         if not results:
