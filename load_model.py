@@ -4,7 +4,7 @@ from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent
-WEIGHTS_DIR = BASE_DIR / "weights" / "SAM3.pt"
+WEIGHTS_DIR = BASE_DIR / "weights" / "sam3.pt"
 
 def load_ocr_engine():
     OCR_ENGINE = PaddleOCR(lang="korean", use_angle_cls=True,device = "gpu")
