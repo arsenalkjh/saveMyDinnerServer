@@ -18,20 +18,6 @@ def _dedupe_keep_order(items):
             result.append(item)
     return result
 
-BASE_DIR = Path(__file__).resolve().parent
-IMAGE_PATH = BASE_DIR / "pngtree-fresh-vegetables-set-realistic-tomatoes-cucumber-carrots-lettuce-in-ultra-hd-png-image_17699620.webp"
-OCR_ENGINE = PaddleOCR(lang="korean", use_angle_cls=True)
-
-
-overrides = dict(
-    conf=0.25,
-    task="segment",
-    mode="predict",
-    model=str(BASE_DIR.parent.parent / "weights" / "sam3.pt"),
-    half=True,  # Use FP16 for faster inference
-    save=True,
-)
-SAM_MODEL = SAM3SemanticPredictor(overrides=overrides)
 
 def run_ocr_pipeline(
         # ocr_engine,
@@ -67,11 +53,3 @@ def run_ocr_pipeline(
 
     return _dedupe_keep_order(cleaned_list)
 
-
-if __name__ == "__main__":
-    result = run_ocr_pipeline(
-        ocr_engine=OCR_ENGINE,
-        sam_model=SAM_MODEL,
-        image_path=IMAGE_PATH,
-    )
-    print(f"\nFinal result: {result}")

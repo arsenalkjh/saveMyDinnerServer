@@ -3,16 +3,6 @@ from transformers import AutoProcessor, LlavaOnevisionForConditionalGeneration
 from PIL import Image
 import re
 
-model_name = "NCSOFT/VARCO-VISION-2.0-1.7B-OCR"
-model = LlavaOnevisionForConditionalGeneration.from_pretrained(
-    model_name,
-    torch_dtype=torch.float16,
-    attn_implementation="sdpa",
-    device_map="auto",
-)
-processor = AutoProcessor.from_pretrained(model_name)
-
-
 def run_varco_ocr(
     image_path,
     model,
