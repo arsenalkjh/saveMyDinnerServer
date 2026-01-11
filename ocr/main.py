@@ -59,7 +59,9 @@ def run_ocr_pipeline(
     
     final_result = [*llm_items , *vlm_items]
 
-    return _dedupe_keep_order(final_result)
+    cleaned_list = [item.strip().lower() for item in final_result]
+
+    return _dedupe_keep_order(cleaned_list)
 
 
 if __name__ == "__main__":
