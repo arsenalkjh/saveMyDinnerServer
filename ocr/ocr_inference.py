@@ -11,7 +11,7 @@ from typing import Dict, Iterable, List, Sequence, Set, Tuple
 import cv2
 import numpy as np
 from PIL import Image
-from paddleocr import PaddleOCR
+# from paddleocr import PaddleOCR
 
 
 def run_ocr_with_rotations(

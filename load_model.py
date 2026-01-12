@@ -1,4 +1,4 @@
-from paddleocr import PaddleOCR
+# from paddleocr import PaddleOCR
 from ultralytics.models.sam import SAM3SemanticPredictor
 import torch
 from transformers import AutoProcessor, LlavaOnevisionForConditionalGeneration
