@@ -70,7 +70,7 @@ def load_image(image_path: Path) -> Image.Image:
 
 
 def run_sam(image_path: Path, model, prompts: Optional[List[str]] = None):
-    prompts = prompts or ["vegetable","fruit"]
+    prompts = prompts or ["vegetable"]
     model.set_image(str(image_path))
     results = model(text=prompts)
     boxes_tensor = boxes_from_results(results=results)
