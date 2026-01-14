@@ -1,5 +1,8 @@
 import torch
 from transformers import AutoProcessor, LlavaOnevisionForConditionalGeneration
+import numpy as np
+import cv2
+
 from PIL import Image
 import re
 
@@ -22,13 +25,11 @@ def run_varco_ocr(
     for angle in angle_list:
         target = image if angle == 0 else rotate_image(image, angle)
 
-
-
         conversation = [
             {
                 "role": "user",
                 "content": [
-                    {"type": "image", "image": image},
+                    {"type": "image", "image": target},
                     {"type": "text", "text": "<ocr>"},
                 ],
             },

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from paddleocr import PaddleOCR
+# from paddleocr import PaddleOCR
 from ultralytics.models.sam import SAM3SemanticPredictor
 
 from ocr.ocr_inference import run_ocr_with_rotations
