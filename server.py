@@ -12,14 +12,11 @@ from ocr.main import run_ocr_pipeline
 from load_model import load_ocr_engine
 from load_model import load_sam_model
 from load_model import load_varco_ocr
-from load_model import load_hy_translate
 
 ocr_engine = None
 sam3_model = None
 varco_ocr_model = None
 varco_ocr_processor = None
-translator_model = None
-translator_tokenizer = None
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -33,10 +30,6 @@ async def lifespan(app: FastAPI):
     varco_ocr_model ,varco_ocr_processor = load_varco_ocr()
     print("🧠 Loading SAM3 model...")
     sam3_model = load_sam_model()
-
-    print("Loading translator")
-    translator_model, translator_tokenizer = load_hy_translate()
-
 
     print("✅ All models loaded")
     yield
