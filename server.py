@@ -6,21 +6,16 @@ from contextlib import asynccontextmanager
 
 from ocr.main import run_ocr_pipeline
 
-
-
-
-from load_model import load_ocr_engine
 from load_model import load_sam_model
 from load_model import load_varco_ocr
 
-ocr_engine = None
 sam3_model = None
 varco_ocr_model = None
 varco_ocr_processor = None
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    global ocr_engine, sam3_model, varco_ocr_model , varco_ocr_processor
+    global sam3_model, varco_ocr_model , varco_ocr_processor
 
     # print("🚀 Loading OCR engine...")
     # ocr_engine = load_ocr_engine()
@@ -52,7 +47,6 @@ async def ocr_api(file: UploadFile = File(...)):
         shutil.copyfileobj(file.file, buffer)
 
     result = run_ocr_pipeline(
-        # ocr_engine = ocr_engine, 
         varco_ocr_model = varco_ocr_model,
         varco_ocr_processor = varco_ocr_processor,
         sam_model = sam3_model,

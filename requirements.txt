@@ -1,5 +1,4 @@
 ultralytics
-# paddlepaddle-gpu==3.2.2 -i https://www.paddlepaddle.org.cn/packages/stable/cu130/
 opencv-python
 Pillow
 numpy
@@ -12,6 +11,3 @@ sentence-transformers
 fastapi
 uvicorn
 python-multipart
-
-
-git+https://github.com/openai/CLIP.git

@@ -3,7 +3,6 @@ from pathlib import Path
 # from paddleocr import PaddleOCR
 from ultralytics.models.sam import SAM3SemanticPredictor
 
-from ocr.ocr_inference import run_ocr_with_rotations
 from ocr.detect_ingredients import run_sam
 from ocr.qwen_model import postprocessing_with_vlm,clean_ocr_with_llm
 from ocr.varco_ocr import run_varco_ocr
@@ -20,17 +19,14 @@ def _dedupe_keep_order(items):
 
 
 def run_ocr_pipeline(
-        # ocr_engine,
         varco_ocr_model,
         varco_ocr_processor,
         sam_model,
         image_path,
         model_name_llm = "Qwen/Qwen3-1.7B",
         model_name_vlm = "Qwen/Qwen3-VL-2B-Instruct",
-        # rotations = [0,90,180,270]
 ):
     print("step1 OCR")
-    # raw_texts = run_ocr_with_rotations(ocr_engine, image_path, rotations=rotations)
     raw_texts = run_varco_ocr(image_path = image_path , model = varco_ocr_model , processor = varco_ocr_processor)
     print(raw_texts)
 
